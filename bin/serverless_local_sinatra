@@ -1,0 +1,8 @@
+begin
+  require 'serverless_local_sinatra/application/app.rb'
+rescue LoadError => e
+  require 'rubygems'
+  path = File.expand_path '../../lib', __FILE__
+  $:.unshift(path) if File.directory?(path) && !$:.include?(path)
+  require 'serverless_local_sinatra/application/app.rb'
+end
