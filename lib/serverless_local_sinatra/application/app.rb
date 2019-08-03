@@ -17,7 +17,9 @@ class ServerlessLocalSinatraApp < Sinatra::Base
       command = "serverless invoke local -f #{name}"
       command += " -d '#{sanitized_body}'" unless sanitized_body.empty?
       puts command
-      `#{command}`
+      output = `#{command}`
+      puts output
+      output
     end
   end
 end
